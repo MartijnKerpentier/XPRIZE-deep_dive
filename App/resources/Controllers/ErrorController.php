@@ -1,9 +1,9 @@
 <?php
-Class HomeController
+Class ErrorController
 {
     public function index($loader, $twig)
     {
-        echo $twig->render('index.html');
+        echo $twig->render('404.html');
     }
 }
 ?>
