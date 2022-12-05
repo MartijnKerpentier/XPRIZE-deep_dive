@@ -64,6 +64,7 @@ build/Release
 node_modules/
 jspm_packages/
 web_modules/
+.idea/
 typings/
 *.tsbuildinfo
 .npm
