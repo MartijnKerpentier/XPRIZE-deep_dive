@@ -21,7 +21,7 @@ if (file_exists($file)) {
     $C_NAME = "Error";
     $M_NAME = "index";
 }
-$class = "{$C_NAME}Controller";
+$class = 'Controllers\\' . "{$C_NAME}Controller";
 $new = new $class();
 echo $new -> $M_NAME($loader, $twig);
 ?>
