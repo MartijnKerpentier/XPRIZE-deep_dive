@@ -12,4 +12,5 @@ Class HomeController extends Database
         echo $twig->render('index.html', ['tasks' => $data]);
     }
 }
+
 ?>

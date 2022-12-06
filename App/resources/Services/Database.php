@@ -22,6 +22,13 @@ class Database
         }
     }
 
+    public function insertNewTask($title, $description, $publisher, $points, $img_url) {
+        $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
+        $sql = "INSERT INTO Tasks (Title, Description, Publisher, Points, image) VALUES (?,?,?,?,?)";
+        $pdo->prepare($sql)->execute([$title, $description, $publisher, $points, $img_url]);
+        echo 'Succes';
+    }
+
     public function getTasksData()
     {
         $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
