@@ -10,16 +10,25 @@ class Database
     protected $password = "";
     public $dbname = "test";
 
-    public function test_connection()
+    public function testConnection()
     {
         try {
-            $conn = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
+            $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
             // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connected successfully";
         } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
+    }
+
+    public function getTasksData()
+    {
+        $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
+        $sql = 'SELECT * FROM Tasks';
+        $sth = $pdo->query($sql);
+        $result = $sth->fetchAll();
+        return $result;
     }
 }
 ?>

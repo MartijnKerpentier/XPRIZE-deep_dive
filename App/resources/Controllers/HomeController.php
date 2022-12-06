@@ -8,8 +8,8 @@ Class HomeController extends Database
 {
     public function index($loader, $twig)
     {
-        $this -> test_connection();
-        echo $twig->render('index.html');
+        $data = $this -> getTasksData();
+        echo $twig->render('index.html', ['tasks' => $data]);
     }
 }
 ?>

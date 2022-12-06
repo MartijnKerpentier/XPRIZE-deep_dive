@@ -4,6 +4,12 @@ $loader = new \Twig\Loader\FilesystemLoader('../public/html');
 $twig = new \Twig\Environment($loader);
 $url = "$_SERVER[REQUEST_URI]";
 $array = explode("/", $url);
+/*
+ * $C_NAME -> "Class name"
+ * $M_NAME -> "Method name"
+ *
+ * Bepaal welke Class en method worden aangeroepen door if-statement
+ */
 if (!empty($array[3])) {
     $C_NAME = $array[3];
 } else {
@@ -24,4 +30,3 @@ if (file_exists($file)) {
 $class = 'Controllers\\' . "{$C_NAME}Controller";
 $new = new $class();
 echo $new -> $M_NAME($loader, $twig);
-?>
