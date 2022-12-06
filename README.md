@@ -15,7 +15,7 @@ Created: December 5, 2022 4:42 PM
     ```
 
 2. Open **test.sql** and copy the code into the console of the database.
-3. Open the **XPRIZE-deep_dive** folder in the folder with the command line:
+3. Open the **XPRIZE-deep_dive** folder with the command line:
 
     ```bash
     $ cd App
