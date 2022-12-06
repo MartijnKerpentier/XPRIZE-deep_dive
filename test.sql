@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2022 at 11:06 AM
+-- Generation Time: Dec 06, 2022 at 12:34 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,8 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `test`
 --
-DROP DATABASE IF EXISTS test;
-CREATE DATABASE test;
+
 -- --------------------------------------------------------
 
 --

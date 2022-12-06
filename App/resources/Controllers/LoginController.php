@@ -9,9 +9,10 @@ Class LoginController extends Database
     public function index($loader, $twig)
     {
         echo $twig->render('login_example.html');
-        $correct = $this->checkUserData($_POST['Username'], $_POST['Password']);
-        $this->feedback($correct);
-
+        if (!empty($_POST)) {
+            $correct = $this->checkUserData($_POST['Username'], $_POST['Password']);
+            $this->feedback($correct);
+        }
     }
 
     private function checkUserData($username, $password)
@@ -33,6 +34,11 @@ Class LoginController extends Database
         } else {
             echo 'Incorrect ';
         }
+    }
+
+    private function generateRandomString()
+    {
+
     }
 }
 ?>
