@@ -35,5 +35,10 @@ class Database
     {
         //
     }
+
+    public function getUserData()
+    {
+        
+    }
 }
 ?>

@@ -10,6 +10,7 @@ $array = explode("/", $url);
  *
  * Bepaal welke Class en method worden aangeroepen door if-statement
  */
+
 if (!empty($array[3])) {
     $C_NAME = $array[3];
 } else {
