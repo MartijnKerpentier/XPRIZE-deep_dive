@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2022 at 12:34 PM
+-- Generation Time: Dec 06, 2022 at 03:31 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.29
 
@@ -33,14 +33,14 @@ CREATE TABLE `Tasks` (
                          `Description` text DEFAULT NULL,
                          `Publisher` varchar(255) NOT NULL,
                          `Points` int(11) NOT NULL,
-                         `image` varchar(255) DEFAULT NULL
+                         `Image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Tasks`
 --
 
-INSERT INTO `Tasks` (`id`, `Title`, `Description`, `Publisher`, `Points`, `image`) VALUES
+INSERT INTO `Tasks` (`id`, `Title`, `Description`, `Publisher`, `Points`, `Image`) VALUES
                                                                                        (1, 'cailliau.org', 'Op zoek naar een front-end designer die onze website!', 'Robert Cailliau', 1000, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/601px-WWW_logo_by_Robert_Cailliau.svg.png'),
                                                                                        (2, 'Opdracht bedrijf : DHL', 'Als DHL lopen we tegen een groot probleem aan het probleem is dat we veel vervuilen door de pakketjes die we gebruiken om te leveren bedenk een goede oplossing als team!', 'DHL', 100, 'https://yt3.ggpht.com/ytc/AMLnZu_kzFtQeGXKMvhcefe2gmdwUiwsxD1W3FGIiG5JiQ=s900-c-k-c0x00ffffff-no-rj'),
                                                                                        (5, 'Project bedrijf : bol.com', 'Als bol.com zijnde willen we graag een individueel in ons software team wij willen dat je iets software achtig iets maakt waarmee we kunnen zien waar je goed in bent', 'Bol.com', 200, 'https://bol.com/social-tile.png');
@@ -58,6 +58,13 @@ CREATE TABLE `Users` (
                          `Token` varchar(255) DEFAULT NULL,
                          `Points` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`id`, `Username`, `Password`, `Token`, `Points`) VALUES
+    (1, 'test', 'test', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -83,13 +90,13 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Tasks`
 --
 ALTER TABLE `Tasks`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
