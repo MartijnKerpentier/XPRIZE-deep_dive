@@ -16,7 +16,7 @@ class Database
     protected $password = "";
     public $dbname = "test";
 
-    public function testConnection()
+    public function testConnection(): void
     {
         try {
             $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
@@ -34,11 +34,6 @@ class Database
         $sql = 'SELECT * FROM Tasks';
         $sth = $pdo->query($sql);
         return $sth->fetchAll();
-    }
-
-    public function insertNewTask()
-    {
-        //
     }
 
     public function getUserData()
