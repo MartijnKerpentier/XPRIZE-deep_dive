@@ -12,7 +12,6 @@ class PublishController extends Database
         if (!empty($_POST)) {
             $this -> insertNewTask($_POST['title'], $_POST['description'], $_POST['publisher'], $_POST['points'], $_POST['img_url']);
         }
-        
     }
 
 }
