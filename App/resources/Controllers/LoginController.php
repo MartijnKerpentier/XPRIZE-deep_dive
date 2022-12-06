@@ -38,7 +38,7 @@ Class LoginController extends Database
             $_SESSION['token'] = [$token, $this->id];
             header('Location: http://localhost/XPRIZE-deep_dive/App');
         } else {
-            $_SESSION['token'] = [false, 1];
+            $_SESSION['token'] = ['NONE', 1];
             echo 'Incorrect ';
         }
     }

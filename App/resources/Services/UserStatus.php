@@ -7,7 +7,7 @@ class UserStatus extends Database
     public function __construct()
     {
         if (empty($_SESSION['token'])) {
-            $_SESSION['token'] = [false, 1];
+            $_SESSION['token'] = ['NONE', 1];
         }
     }
 
