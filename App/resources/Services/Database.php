@@ -30,5 +30,10 @@ class Database
         $result = $sth->fetchAll();
         return $result;
     }
+
+    public function insertNewTask()
+    {
+        //
+    }
 }
 ?>
