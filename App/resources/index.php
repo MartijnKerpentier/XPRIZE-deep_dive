@@ -21,6 +21,8 @@ if (file_exists($file)) {
     include $file;
     if (!empty($array[4])) {
         $M_NAME = $array[4];
+    } else {
+        $M_NAME = 'index';
     }
 } else {
     include("Controllers/ErrorController.php");
