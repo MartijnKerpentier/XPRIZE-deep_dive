@@ -5,12 +5,18 @@ use PDOException;
 
 class Database
 {
+    /*
+     * Schrijf de sql-code hier:
+     * Als je de databasefunctie wilt aanroepen in de controller,
+     * extends deze klasse aan de controller
+     */
+
     public $servername = "localhost";
     protected $username = "root";
     protected $password = "";
     public $dbname = "test";
 
-    public function testConnection()
+    public function testConnection(): void
     {
         try {
             $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
@@ -34,8 +40,15 @@ class Database
         $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
         $sql = 'SELECT * FROM Tasks';
         $sth = $pdo->query($sql);
-        $result = $sth->fetchAll();
-        return $result;
+        return $sth->fetchAll();
+    }
+
+    public function getUserData()
+    {
+        $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
+        $sql = 'SELECT * FROM Users';
+        $sth = $pdo->query($sql);
+        return $sth->fetchAll();
     }
 }
 ?>
