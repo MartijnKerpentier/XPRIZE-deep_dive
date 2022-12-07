@@ -10,10 +10,14 @@ Class LoginController extends Database
 
     public function index($loader, $twig)
     {
-        echo $twig->render('login_example.html');
+        if (empty($_POST)) {
+            echo $twig->render('login.html', [
+                'url' => 'http://localhost/XPRIZE-deep_dive/App',
+            ]);
+        }
         if (!empty($_POST)) {
             $correct = $this->checkUserData($_POST['Username'], $_POST['Password']);
-            $this->feedback($correct);
+            $this->feedback($correct, $loader, $twig);
         }
     }
 
@@ -30,16 +34,20 @@ Class LoginController extends Database
         return $correct;
     }
 
-    private function feedback($correct)
+    private function feedback($correct, $loader, $twig)
     {
         if ($correct) {
             $token = $this->generateRandomString(10);
+            $data = $this->getSpecificUserData($this->id);
             $this->updateUserToken($token, $this->id);
-            $_SESSION['token'] = [$token, $this->id];
+            $_SESSION['token'] = [$token, $this->id, $data[0]['Username']];
             header('Location: http://localhost/XPRIZE-deep_dive/App');
         } else {
+            echo $twig->render('login.html', [
+                'url' => 'http://localhost/XPRIZE-deep_dive/App',
+                'Message' => "Is gebruikersnaam of wachtwoord onjuist?🤔"
+            ]);
             $_SESSION['token'] = ['NONE', 1];
-            echo 'Incorrect ';
         }
     }
 

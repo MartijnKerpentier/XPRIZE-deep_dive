@@ -15,7 +15,9 @@ class UserStatus extends Database
     {
         $status = false;
         $data = $this->getSpecificUserData($id);
-        $token = $data[0]["Token"];
+        if (isset($data[0]["Token"])) {
+            $token = $data[0]["Token"];
+        }
         if ($token == $_SESSION['token'][0]) {
             $status = true;
         }

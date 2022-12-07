@@ -33,8 +33,12 @@ if($status->index($_SESSION['token'][1])) {
         $M_NAME = "index";
     }
 } else {
-    include("Controllers/LoginController.php");
-    $C_NAME = "Login";
+    if ($array[3] == "Signup") {
+        $C_NAME = "Signup";
+    } else {
+        $C_NAME = "Login";
+    }
+    include("Controllers/{$C_NAME}Controller.php");
     $M_NAME = "index";
 }
 

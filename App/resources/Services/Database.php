@@ -28,11 +28,11 @@ class Database
         }
     }
 
-    public function insertNewTask($title, $description, $publisher, $points, $img_url) {
+    public function insertNewTask($title, $description, $publisher, $points, $img_url)
+    {
         $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
         $sql = "INSERT INTO Tasks (Title, Description, Publisher, Points, Image) VALUES (?,?,?,?,?)";
         $pdo->prepare($sql)->execute([$title, $description, $publisher, $points, $img_url]);
-        echo 'Succes';
     }
 
     public function getTasksData()
@@ -54,7 +54,7 @@ class Database
     public function getSpecificUserData($id)
     {
         $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
-        $sql = 'SELECT Token FROM Users WHERE id =' . $id;
+        $sql = 'SELECT Username, Token FROM Users WHERE id =' . $id;
         $sth = $pdo->query($sql);
         return $sth->fetchAll();
     }
@@ -64,6 +64,13 @@ class Database
         $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
         $sql = "UPDATE Users SET token=? WHERE id=?";
         $pdo->prepare($sql)->execute([$token, $id]);
+    }
+
+    public function NewUser($Username, $Password)
+    {
+        $pdo = new PDO("mysql:host={$this->servername};dbname={$this->dbname}", $this->username, $this->password);
+        $sql = "INSERT INTO Users (Username, Password, Token, Points) VALUES (?,?,?,?)";
+        $pdo->prepare($sql)->execute([$Username, $Password, false, 0]);
     }
 }
 ?>
