@@ -15,7 +15,8 @@ Created: December 5, 2022 4:42 PM
     ```
 
 2. Open **phpmyadmin**, first create a database, which can be named "test". Then click on the import option -> select file, click **test.sql** and open it, finally at the bottom of the page click on import and the database is built!
-3. Open the **XPRIZE-deep_dive** folder with the command line:
+3. Please note that the default database location for this project is **localhost**, if you want to customize it, please go to `App/resources/Services/Database.php` to change the parameters.
+4. Open the **XPRIZE-deep_dive** folder with the command line:
 
     ```bash
     $ cd App
@@ -23,4 +24,4 @@ Created: December 5, 2022 4:42 PM
     $ composer dump-autoload
     ```
 
-4. The site is up and running!
+5. The site is up and running!
