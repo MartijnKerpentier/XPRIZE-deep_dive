@@ -14,7 +14,7 @@ Created: December 5, 2022 4:42 PM
     $ git clone git@github.com:MartijnKerpentier/XPRIZE-deep_dive.git
     ```
 
-2. Open **test.sql** and copy the code into the console of the database.
+2. Open **phpmyadmin**, first create a database, which can be named "test". Then click on the import option -> select file, click **test.sql** and open it, finally at the bottom of the page click on import and the database is built!
 3. Open the **XPRIZE-deep_dive** folder with the command line:
 
     ```bash
